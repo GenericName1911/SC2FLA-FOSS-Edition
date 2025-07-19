@@ -37,7 +37,7 @@ class Console:
 
     @staticmethod
     def warning(message: str):
-        print(colorama.Fore.MAGENTA + f"[WARNING] {message}" + colorama.Style.RESET_ALL)
+        print(colorama.Fore.MAGENTA + f"[WARN] {message}" + colorama.Style.RESET_ALL)
 
     @staticmethod
     def error(message: str):
