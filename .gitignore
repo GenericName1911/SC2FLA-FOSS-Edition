@@ -1,4 +1,7 @@
+# Local files
+
 $assets/
+ScDowngrade.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
