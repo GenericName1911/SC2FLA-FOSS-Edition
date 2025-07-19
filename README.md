@@ -1,25 +1,17 @@
 # SC2FLA-FOSS-Edition
 
-SC2FLA-FOSS-Edition is a FOSS tool for converting `.sc` files (Supercell's 2D asset format) into `.fla` (Adobe Animate) files. It allows artists and modders to access and animate Supercell assets freely.
+SC2FLA-FOSS-Edition is a **Free and Open-source** tool for converting `.sc` files (Supercell's 2D asset format) into `.fla` (Adobe Animate) files.
 
 The Original [SC2FLA](https://github.com/sc-workshop/SC) was released by [Daniil](https://github.com/daniil-sv) and [Fred](https://github.com/pavidloq) is now closed-source and has been rewritten in a faster language with more features. 
 
-## Purpose of This Edition
-
-This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats**, particularly for animation preview and file extraction. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities.
-
 ## Features
+
+This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats**, particularly for animation preview and file extraction. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities. It supports:
 
 - Basic `.sc` to `.fla` conversion
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Version detection for `.sc` files
 - Support for batch processing of files
-
-## To-do
-
-- Improve logging
-- Allow directory argument
-- Merge `main.py` and `processor.py`
 
 ## Usage
 
@@ -32,6 +24,12 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 3. Put `.sc`, `_dl.sc`, `_tex.sc`, `.sctx` and `_{number}.sc` in the `$assets` folder.
 
 4. Run `run.bat`
+
+## To-do
+
+- Improve logging
+- Allow directory argument
+- Merge `main.py` and `processor.py`
 
 ## Licensing Notice:
 
