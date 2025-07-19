@@ -3,8 +3,8 @@ import time
 import argparse
 import shutil
 
-from sc_compression.signatures import Signatures
-from sc_compression import Decompressor, Compressor
+from sc-compression.signatures import Signatures
+from sc-compression import Decompressor, Compressor
 
 from lib.console import Console, Time
 
