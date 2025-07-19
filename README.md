@@ -25,7 +25,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 2. Run `setup.py` or manually install pips:
 
-`pip install sc-compression Pillow numpy affine6p colorama lxml ujson`
+`pip install -r requirements.txt`
 
 3. Download the latest release of [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and put it in the `~/lib` folder.
 
