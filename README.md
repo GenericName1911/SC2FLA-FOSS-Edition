@@ -6,14 +6,14 @@ The Original [SC2FLA](https://github.com/sc-workshop/SC) was released by [Daniil
 
 ## Features
 
-This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats**, particularly for animation preview and file extraction. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities. It supports:
+This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats** and offers **extended support** for SC2FLA. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities. It supports:
 
 - Basic `.sc` to `.fla` conversion
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Version detection for `.sc` files
 - Support for batch processing of files
 
-## Note
+## Support
 
 This tool is only usable on Windows with no plans to extend OS support. Moreover, I do not plan to implement new sc2fla features, but only to offer extended support.
 
