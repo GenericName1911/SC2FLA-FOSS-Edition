@@ -34,6 +34,7 @@ else:
 
 if not os.path.isfile(EXE_PATH):
     logger.critical(f"Missing required binary: ScDowngrade.exe not found at {EXE_PATH}")
+    exit()
 
 def get_used_version(data):
     # Extracts version number from SC binary header.
