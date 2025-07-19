@@ -62,7 +62,7 @@ def process_file(filepath):
     logger.info(f"Processing: {os.path.basename(filepath)}")
 
     if not filepath.lower().endswith(".sc"):
-        logger.warning(f"Invalid file extension: {filepath}")
+        logger.warning(f"Invalid file extension: {os.path.basename(filepath)}")
         return
 
     with open(filepath, "rb") as f:
