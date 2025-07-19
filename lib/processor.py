@@ -10,11 +10,10 @@ EXE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "ScDowngrade.
 if "-d" in sys.argv:
     ASSET_DIR = os.path.abspath(sys.argv[sys.argv.index("-d") + 1]) # Dir argument
 else:
-    ASSET_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "$assets")) # $assets folder
+    ASSET_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..","$assets")) # $assets folder
 
 if not os.path.isfile(EXE_PATH):
     logger.critical(f"Missing required binary: ScDowngrade.exe not found at {EXE_PATH}")
-    sys.exit(1)
 
 class ColorFormatter(logging.Formatter):
     COLORS = {
