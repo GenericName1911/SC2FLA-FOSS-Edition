@@ -2,7 +2,7 @@
 
 SC2FLA-FOSS-Edition is a **Free and Open-source** tool for converting `.sc` files (Supercell's 2D asset format) into `.fla` (Adobe Animate) files.
 
-The Original [SC2FLA](https://github.com/sc-workshop/SC) was released by [Daniil](https://github.com/daniil-sv) and [Fred](https://github.com/pavidloq) is now closed-source and has been rewritten in a faster language with more features. 
+The Original [SC2FLA](https://github.com/sc-workshop/SC) was released by [Daniil](https://github.com/daniil-sv) and [Fred](https://github.com/pavidloq) is now **closed-source** and has been rewritten by Daniil in a faster language with more features. 
 
 ## Features
 
@@ -12,6 +12,12 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Version detection for `.sc` files
 - Support for batch processing of files
+
+## Note
+
+This tool is only usable on Windows with no plans to extend OS support. Moreover, I do not plan to implement new sc2fla features, but only to offer extended support.
+
+Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## Usage
 
