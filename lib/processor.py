@@ -5,16 +5,6 @@ import shutil
 import subprocess
 import logging
 
-EXE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "ScDowngrade.exe"))  # Relative path to ScDowngrade.exe
-
-if "-d" in sys.argv:
-    ASSET_DIR = os.path.abspath(sys.argv[sys.argv.index("-d") + 1]) # Dir argument
-else:
-    ASSET_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..","$assets")) # $assets folder
-
-if not os.path.isfile(EXE_PATH):
-    logger.critical(f"Missing required binary: ScDowngrade.exe not found at {EXE_PATH}")
-
 class ColorFormatter(logging.Formatter):
     COLORS = {
         'DEBUG': '\033[94m',
@@ -34,6 +24,16 @@ logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()
 handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
+
+EXE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "ScDowngrade.exe"))  # Relative path to ScDowngrade.exe
+
+if "-d" in sys.argv:
+    ASSET_DIR = os.path.abspath(sys.argv[sys.argv.index("-d") + 1]) # Dir argument
+else:
+    ASSET_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..","$assets")) # $assets folder
+
+if not os.path.isfile(EXE_PATH):
+    logger.critical(f"Missing required binary: ScDowngrade.exe not found at {EXE_PATH}")
 
 def get_used_version(data):
     # Extracts version number from SC binary header.
