@@ -21,15 +21,17 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## Usage
 
-1. Run `setup.py` or manually install pips:
+1. Download [latest release](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/releases/)
+
+2. Run `setup.py` or manually install pips:
 
 `pip install sc-compression Pillow numpy affine6p colorama lxml ujson`
 
-2. Download the latest release of [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and put it in the `~/lib` folder.
+3. Download the latest release of [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and put it in the `~/lib` folder.
 
-3. Put `.sc`, `_dl.sc`, `_tex.sc`, `.sctx` and `_{number}.sc` in the `$assets` folder.
+4. Put `.sc`, `_dl.sc`, `_tex.sc`, `.sctx` and `_{number}.sc` in the `$assets` folder.
 
-4. Run `run.bat`
+5. Run `run.bat`
 
 ## To-do
 
