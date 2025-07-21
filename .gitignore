@@ -2,6 +2,8 @@
 ScDowngrade.exe
 .sc
 .sctx
+.fla
+.exe
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
