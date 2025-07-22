@@ -102,9 +102,9 @@ def main():
         formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=35, width=100),
         add_help=False
     )
-    parser.add_argument("-p", "--process", type=str, metavar='path', help="Process .sc file or directory")
-    parser.add_argument("-dx", "--decompress", type=str, metavar='file', help="Decompress .sc files")
-    parser.add_argument("-cx", "--compress", type=str, metavar='file', help="Compress .sc files (LZMA | SC | v1)")
+    parser.add_argument("-p", "--process", type=str, metavar='FILE/DIR', help="Process .sc file or directory")
+    parser.add_argument("-dx", "--decompress", type=str, metavar='FILE', help="Decompress .sc files")
+    parser.add_argument("-cx", "--compress", type=str, metavar='FILE', help="Compress .sc files (LZMA | SC | v1)")
     parser.add_argument("-s", "--sort-layers", action="store_true", help="Enable layer sorting during decompilation")
     parser.add_argument("-d", "--dump", action="store_true", help="Dumps .png resources of .sc files (not implemented)")
     parser.add_argument("-h", "--help", action="store_true", help="Show this help message and exit")
