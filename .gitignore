@@ -1,9 +1,10 @@
 # Local files
-ScDowngrade.exe
 .sc
 .sctx
 .fla
 .exe
+test/
+test
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
