@@ -35,9 +35,9 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## To-do
 
-- Improve logging
-- Allow directory as argument
-- Merge `main.py` and `processor.py`
+- ~~Improve logging~~
+- ~~Allow directory as argument~~
+- ~~Merge `main.py` and `processor.py`~~
 - Implement SCTX Converter
 
 ## Licensing Notice:
