@@ -1,3 +1,3 @@
 @echo off
-main.py -d $assets 
+main.py -p $assets 
 pause >nul
