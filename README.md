@@ -15,7 +15,7 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 
 ## Support
 
-This tool is only usable on Windows with no plans to extend OS support. Moreover, I do not plan to implement new sc2fla features, but only to offer extended support.
+This tool is only usable on Windows with no plans to extend OS support. ~~Moreover, I do not plan to implement new sc2fla features, but only to offer extended support.~~ Might slowly imrpove and introduce new features.
 
 Feel free to contribute to this project! Any help is greatly appreciated :D
 
