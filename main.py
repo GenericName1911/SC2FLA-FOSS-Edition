@@ -11,7 +11,10 @@ from sc_compression.signatures import Signatures
 from sc_compression import Decompressor, Compressor
 from lib.console import Console, Time
 
-EXE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "lib", "ScDowngrade.exe"))
+sc1_ver = [1,2,3,4]
+sc2_ver = [5,6]
+EXE_PATH = os.path.relpath(os.path.join(os.path.dirname(__file__), "lib", "ScDowngrade.exe"))
+
 
 class ColorFormatter(logging.Formatter):
     COLORS = {
@@ -33,38 +36,49 @@ handler = logging.StreamHandler()
 handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
 
+
 def sc_file_filter(path):
     return path.endswith(".sc") and not path.endswith("_tex.sc")
+
 
 def print_centered(text, color_code=""):
     width = shutil.get_terminal_size().columns
     print(f"{color_code}{text.center(width)}\033[0m")
+
 
 def get_used_version(data):
     if len(data) < 6 or data[:2] != b"SC":
         return None
     be = struct.unpack(">I", data[2:6])[0]
     le = struct.unpack("<I", data[2:6])[0]
-    return le if be >= 5 else be
+    if be in sc1_ver or be in sc2_ver:
+        return be
+    if le in sc1_ver or le in sc2_ver:
+        return le
+    return None
+
 
 def downgrade(filepath):
     try:
         subprocess.run([EXE_PATH, filepath, filepath], check=True)
         logger.info(f"Downgraded: {os.path.basename(filepath)}")
     except FileNotFoundError:
-        logger.error(f"Missing ScDowngrade.exe at path: {EXE_PATH}")
+        logger.critical(f"Missing ScDowngrade.exe at path: ~\\{EXE_PATH}")
     except subprocess.CalledProcessError:
-        logger.error(f"ScDowngrade.exe failed on: {os.path.basename(filepath)}")
+        logger.error(f"ScDowngrade.exe Failed on: {os.path.basename(filepath)}")
     except Exception as e:
-        logger.error(f"Unexpected error: {os.path.basename(filepath)} — {e}")
+        logger.error(f"Unexpected Error: {os.path.basename(filepath)} — {e}")
+
 
 def decompile(filepath):
     from lib import sc_to_fla
     sc_to_fla(filepath)
 
+
 def process_file(filepath):
     from lib import sc_to_fla
-
+    
+    print("--------------------")
     logger.info(f"Processing: {os.path.basename(filepath)}")
 
     with open(filepath, "rb") as f:
@@ -75,21 +89,26 @@ def process_file(filepath):
         logger.critical(f"Bad File Magic: {os.path.basename(filepath)}")
         return
 
-    if version >= 5:
-        logger.info("SC2 file detected, downgrading")
-        if not os.path.isfile(EXE_PATH):
-            logger.critical(f"ScDowngrade.exe missing at {EXE_PATH}")
-            exit()
+    elif version in sc1_ver:
+        sc_to_fla(filepath)
+
+    elif version in sc2_ver:
+        logger.info("SC2 file Detected - Downgrading")
         downgrade(filepath)
+        
         with open(filepath, "rb") as f:
             data = f.read()
         version = get_used_version(data)
-        if version is None or version >= 5:
-            logger.error(f"Downgrade failed or version check invalid: {os.path.basename(filepath)}")
-            return
+        
+        if version is not None and version not in sc2_ver:
+            logger.info("Processing SC1 file")
+            sc_to_fla(filepath)
+        else:
+            logger.warning("Processing Failed! Skipping file...")
 
-    logger.info("Decompiling SC1 file")
-    sc_to_fla(filepath)
+    else:
+        logger.debug(f"Unsupported Version: {os.path.basename(filepath)}")
+
 
 def main():
     parser = argparse.ArgumentParser(
