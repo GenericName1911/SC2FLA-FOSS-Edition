@@ -15,23 +15,42 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 
 ## Support
 
-This tool is only usable on Windows with no plans to extend OS support. ~~Moreover, I do not plan to implement new sc2fla features, but only to offer extended support.~~ Slowly improving and introducing new features.
+This tool is only usable on Windows with no plans to extend OS support. I'm slowly improving it, but new features are not a priority at all.
 
 Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## Usage
 
-1. Download [latest release](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/releases/)
+1. Download the [latest release.](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/releases/)
 
-2. Run `setup.py` or manually install pips:
+2. Run `setup.py` or manually install dependencies:
+	
+	`pip install -r requirements.txt`
 
-`pip install -r requirements.txt`
+3. Download [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and place it in the `~\lib` folder.
 
-3. Download the latest release of [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and put it in the `~/lib` folder.
+---
 
-4. Put `.sc`, `_dl.sc`, `_tex.sc`, `.sctx` and `_{number}.sc` in the `$assets` folder.
+### Choose one of the following:
 
-5. Run `run.bat`
+* **Automatic (Quick conversion)**
+
+  1. Place `.sc`, `_dl.sc`, `_tex.sc`, `.sctx`, and `_{number}.sc` files in the `$assets/` folder.
+  2. Run `run.bat`
+  
+* **Command-Line**
+
+```
+  usage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input
+
+  Arguments:
+    -h,  --help             Show this help message and exit  
+    -p,  --process          Process .sc file or directory  
+    -d,  --dump             Dumps .png resources of .sc files (NOT IMPLEMENTED)  
+    -dx, --decompress       Decompress .sc files  
+    -cx, --compress         Compress .sc files (LZMA | SC | V1)  
+    -s,  --sort-layers      Enable layer sorting  
+```
 
 ## To-do
 
