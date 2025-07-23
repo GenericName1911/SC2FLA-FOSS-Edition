@@ -67,10 +67,6 @@ def process_file(filepath):
 
     logger.info(f"Processing: {os.path.basename(filepath)}")
 
-    if not filepath.lower().endswith(".sc"):
-        logger.warning(f"Invalid file extension: {os.path.basename(filepath)}")
-        return
-
     with open(filepath, "rb") as f:
         data = f.read()
 
@@ -100,16 +96,13 @@ def main():
         prog="main.py",
         description="SC2FLA Toolkit — github.com/scwmake/SC | FOSS Support - github.com/GenericName1911",
         formatter_class=lambda prog: argparse.HelpFormatter(prog, max_help_position=35, width=100),
-        add_help=False
-    )
+        add_help=False)
     parser.add_argument("-h", "--help", action="store_true", help="Show this help message and exit")
     parser.add_argument("-p", "--process", type=str, metavar='FILE/DIR', help="Process .sc file or directory")
     parser.add_argument("-d", "--dump", action="store_true", help="Dumps .png resources of .sc files (not implemented)")
     parser.add_argument("-dx", "--decompress", type=str, metavar='FILE', help="Decompress .sc files")
     parser.add_argument("-cx", "--compress", type=str, metavar='FILE', help="Compress .sc files (LZMA | SC | v1)")
     parser.add_argument("-s", "--sort-layers", action="store_true", help="Enable layer sorting during decompilation")
-    
-
 
     args = parser.parse_args()
     start_time = time.time()
@@ -135,17 +128,17 @@ def main():
         path = os.path.abspath(args.process)
         if os.path.isfile(path) and sc_file_filter(path):
             process_file(path)
+        elif os.path.isfile(path) and os.path.splitext(args.process)[1] != ".sc":
+            logger.warning(f"Invalid File: {os.path.basename(args.process)}")
         elif os.path.isdir(path):
             for name in os.listdir(path):
                 full = os.path.join(path, name)
                 if os.path.isfile(full) and sc_file_filter(full):
                     process_file(full)
-        else:
-            logger.critical(f"Invalid input: {path}")
-            exit()
 
     elif args.decompress:
         file = args.decompress
+        logger.info(f"Decompressing: {os.path.basename(file)}")
         if os.path.isfile(file):
             with open(file, 'rb') as f:
                 raw = f.read().split(b"START")[0]
@@ -155,6 +148,7 @@ def main():
 
     elif args.compress:
         file = args.compress
+        logger.info(f"Compressing: {os.path.basename(file)}")
         if os.path.isfile(file):
             with open(file, 'rb') as f:
                 raw = f.read()
