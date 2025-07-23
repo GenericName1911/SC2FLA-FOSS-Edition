@@ -1,1 +1,1 @@
-sc-compressionPillownumpyaffine6p coloramalxmlujson
+sc-compression==0.6.1Pillownumpyaffine6pcoloramalxmlujson

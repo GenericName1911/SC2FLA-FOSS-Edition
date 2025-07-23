@@ -1,5 +1,5 @@
 import subprocess, sys, os
-modules = ['sc-compression','Pillow','numpy','affine6p','colorama','lxml','ujson']
+modules = ['sc-compression==0.6.1','Pillow','numpy','affine6p','colorama','lxml','ujson']
 for module in modules:
     try:
         print(f"Installing: {module}")
