@@ -6,7 +6,7 @@ test
 *.sc
 *.fla
 *.sctx
-.exe
+*.exe
 lib/ScDowngrade.exe
 
 # Byte-compiled / optimized / DLL files
