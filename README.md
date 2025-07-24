@@ -54,10 +54,13 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## To-do
 
-- ~~Improve logging~~
-- ~~Allow directory as argument~~
-- ~~Merge `main.py` and `processor.py`~~
-- Implement SCTX Converter
+- ~~Improve logging [V1.1]~~
+- ~~Allow directory as argument [V2.0]~~
+- ~~Merge `main.py` and `processor.py` [V2.0]~~
+- Implement SCTX Converter [V3.0]
+- Set default textfield colour to white [V3.0]
+- Fix bugged textures with sctx [V3.0]
+
 
 ## Licensing Notice:
 
