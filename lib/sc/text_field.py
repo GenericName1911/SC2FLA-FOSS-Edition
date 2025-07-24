@@ -5,9 +5,9 @@ class TextField(Writable):
     def __init__(self) -> None:
         super().__init__()
 
-        self.font_name: str = None
-        self.font_color: int = -1
-        self.outline_color: int = None # -1
+        self.font_name: str = "none"
+        self.font_color: int = 0xFFFFFF
+        self.outline_color: int = 0xFFFFFF
         self.font_size: int = 0
         self.font_align: int = 0
 
@@ -23,24 +23,25 @@ class TextField(Writable):
 
         self.text: str = None
         self.isDynamic: bool = False
-        
-        self.flag1: bool = None  # False
-        self.flag2: bool = None  # False
-        self.flag3: bool = None  # False
 
-        self.c1: int = None  # 0
-        self.c2: int = None  # 0
+        self.flag1: bool = None
+        self.flag2: bool = None
+        self.flag3: bool = None
+
+        self.c1: int = None
+        self.c2: int = None
 
     def load(self, swf, tag: int):
         id = swf.reader.read_ushort()
         
-        self.font_name = swf.reader.read_ascii()
-        self.font_color = swf.reader.read_int()
+        self.font_name = swf.reader.read_ascii() or "none"
+        swf.reader.read_int()
+        self.font_color = 0xFFFFFF
 
         self.bold = swf.reader.read_bool()
         self.italic = swf.reader.read_bool()
         self.multiline = swf.reader.read_bool()
-        self.isDynamic = swf.reader.read_bool()  # unused
+        self.isDynamic = swf.reader.read_bool()
 
         self.font_align = swf.reader.read_uchar()
         self.font_size = swf.reader.read_uchar()
@@ -66,7 +67,7 @@ class TextField(Writable):
 
         if tag > 25:
             self.c1 = swf.reader.read_short()
-            swf.reader.read_short()  # unused
+            swf.reader.read_short()
 
         if tag > 33:
             self.c2 = swf.reader.read_short()
@@ -92,7 +93,7 @@ class TextField(Writable):
         self.write_bool(self.bold)
         self.write_bool(self.italic)
         self.write_bool(self.multiline)
-        self.write_bool(False)  # unused
+        self.write_bool(False)
 
         self.write_uchar(self.font_align)
         self.write_uchar(self.font_size)
@@ -120,7 +121,7 @@ class TextField(Writable):
                         if self.c1 is not None:
                             tag = 25
                             self.write_short(self.c1)
-                            self.write_short(0)  # unused
+                            self.write_short(0)
 
                             if self.c2 is not None:
                                 tag = 33
@@ -139,7 +140,6 @@ class TextField(Writable):
             if a.font_name == b.font_name\
                     and a.font_color == b.font_color\
                     and a.outline_color == b.outline_color\
-                    and a.font_size == b.font_size\
                     and a.font_size == b.font_size\
                     and a.font_align == b.font_align\
                     and a.bold == b.bold\
