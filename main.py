@@ -19,7 +19,7 @@ EXE_PATH = os.path.relpath(os.path.join(os.path.dirname(__file__), "lib", "ScDow
 class ColorFormatter(logging.Formatter):
     COLORS = {
         'DEBUG': '\033[94m',
-        'INFO': '\033[92m',
+        'INFO': '\033[95m',
         'WARNING': '\033[35m',
         'ERROR': '\033[91m',
         'CRITICAL': '\033[31m',

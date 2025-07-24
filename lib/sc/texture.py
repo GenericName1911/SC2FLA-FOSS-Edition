@@ -4,6 +4,7 @@ import os
 from PIL import Image
 import zstandard
 import io
+import subprocess
 from lib.utils.reader import BinaryReader
 from lib.utils.writer import BinaryWriter
 from lib.sc.streaming.sctx import SCTX
@@ -266,8 +267,38 @@ class SWFTexture(Writable):
             
             elif (texture_extension == "ktx"):
                 self.load_khronos_texture(open(compressed_path, "rb").read())
-            
+
+
             elif (texture_extension == "sctx"):
+                print("\033[95m[INFO] Extracting External Asset Texture:", externalTextureFilepath)
+
+                sc_dir = os.path.dirname(swf.filename)
+                full_input_path = os.path.join(sc_dir, externalTextureFilepath)
+                full_output_path = full_input_path.replace("sctx", "png")
+
+                sctx_converter_path = os.path.relpath(os.path.join(os.path.dirname(__file__), "..", "SctxConverter.exe"))
+
+                try:
+                    subprocess.run([
+                        sctx_converter_path,
+                        "decode",
+                        full_input_path,
+                        full_output_path,
+                        "-t"
+                    ], check=True)
+                    print("\033[95m[INFO] SCTX decoded to:", os.path.basename(full_output_path))
+                    self._image = Image.open(full_output_path)
+                except FileNotFoundError:
+                    print("\033[31m[CRITICAL] Missing SctxConverter.exe at path: ~\\lib\\SctxConverter.exe")
+                    return
+                except subprocess.CalledProcessError:
+                    print("\033[91m[ERROR] SctxConverter.exe failed on:", externalTextureFilepath)
+                    return
+                except Exception as e:
+                    print("\033[91m[ERROR] Unexpected error during SCTX conversion:", e)
+                    return
+
+
                 ktx_writer = BinaryWriter()
                 streaming = SCTX(compressed_path, swf.streaming_lowres_id)
                 
