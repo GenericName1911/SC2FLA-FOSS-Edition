@@ -59,10 +59,10 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 - ~~Merge `main.py` and `processor.py` [V2.0]~~
 - ~~Fix sc-compression bug [V2.0]~~
 - Implement SCTX Converter [V3.0]
-- Set default textfield colour to white [V3.0]
 - Fix bugged textures with sctx [V3.0]
+- Set default textfield colour to white [V3.0]
 - Log using Colorama instead of raw ANSI code injection [V3.0]
-
+- Implement dump feature
 
 ## Licensing Notice:
 
