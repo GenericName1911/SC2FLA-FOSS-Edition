@@ -61,6 +61,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 - Implement SCTX Converter [V3.0]
 - Set default textfield colour to white [V3.0]
 - Fix bugged textures with sctx [V3.0]
+- Log using Colorama instead of raw ANSI code injection [V3.0]
 
 
 ## Licensing Notice:
