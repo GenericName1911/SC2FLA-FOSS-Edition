@@ -1,7 +1,5 @@
 import sys
-
 import colorama
-
 import platform
 
 from shutil import get_terminal_size
@@ -50,7 +48,7 @@ class Console:
 
         if (totalCount > 0 and currentCount > 0):
             message += f"[{currentCount}/{totalCount} "
-
+            
         message += info
         message += colorama.Style.RESET_ALL
 

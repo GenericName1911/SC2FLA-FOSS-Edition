@@ -6,29 +6,31 @@ import shutil
 import argparse
 import subprocess
 import logging
+import colorama
 
 from sc_compression.signatures import Signatures
 from sc_compression import Decompressor, Compressor
 from lib.console import Console, Time
+from colorama import Fore, Style
 
-sc1_ver = [1,2,3,4]
-sc2_ver = [5,6]
+
+sc1_ver = [1, 2, 3, 4]
+sc2_ver = [5, 6]
 EXE_PATH = os.path.relpath(os.path.join(os.path.dirname(__file__), "lib", "ScDowngrade.exe"))
-
+colorama.init()
 
 class ColorFormatter(logging.Formatter):
     COLORS = {
-        'DEBUG': '\033[94m',
-        'INFO': '\033[95m',
-        'WARNING': '\033[35m',
-        'ERROR': '\033[91m',
-        'CRITICAL': '\033[31m',
+        'DEBUG': Fore.CYAN,
+        'INFO': Fore.LIGHTMAGENTA_EX,
+        'WARNING': Fore.MAGENTA,
+        'ERROR': Fore.RED,
+        'CRITICAL': Fore.LIGHTRED_EX,
     }
-    RESET = '\033[0m'
 
     def format(self, record):
-        color = self.COLORS.get(record.levelname, self.RESET)
-        return f"{color}[{record.levelname}] {record.getMessage()}{self.RESET}"
+        color = self.COLORS.get(record.levelname, Style.RESET_ALL)
+        return f"{color}[{record.levelname}] {record.getMessage()}{Style.RESET_ALL}"
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -36,14 +38,13 @@ handler = logging.StreamHandler()
 handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
 
-
 def sc_file_filter(path):
     return path.endswith(".sc") and not path.endswith("_tex.sc")
 
 
 def print_centered(text, color_code=""):
     width = shutil.get_terminal_size().columns
-    print(f"{color_code}{text.center(width)}\033[0m")
+    print(f"{color_code}{text.center(width)}{Style.RESET_ALL}")
 
 
 def get_used_version(data):
@@ -77,8 +78,8 @@ def decompile(filepath):
 
 def process_file(filepath):
     from lib import sc_to_fla
-    
-    print("--------------------")
+
+    print("-" * 20)
     logger.info(f"Processing: {os.path.basename(filepath)}")
 
     with open(filepath, "rb") as f:
@@ -89,23 +90,21 @@ def process_file(filepath):
         logger.critical(f"Bad File Magic: {os.path.basename(filepath)}")
         return
 
-    elif version in sc1_ver:
+    if version in sc1_ver:
         sc_to_fla(filepath)
-
     elif version in sc2_ver:
         logger.info("SC2 file Detected - Downgrading")
         downgrade(filepath)
-        
+
         with open(filepath, "rb") as f:
             data = f.read()
         version = get_used_version(data)
-        
+
         if version is not None and version not in sc2_ver:
             logger.info("Processing SC1 file")
             sc_to_fla(filepath)
         else:
             logger.warning("Processing Failed! Skipping file...")
-
     else:
         logger.debug(f"Unsupported Version: {os.path.basename(filepath)}")
 
@@ -128,8 +127,8 @@ def main():
 
     if args.help or len(sys.argv) == 1:
         print()
-        print_centered("FOSS Support by GenericName1911 - github.com/GenericName1911", "\033[95m")
-        print_centered("SC2FLA Toolkit by SCW Make - github.com/scwmake/SC", "\033[32m")
+        print_centered("FOSS Support by GenericName1911 - github.com/GenericName1911", Fore.MAGENTA)
+        print_centered("SC2FLA Toolkit by SCW Make - github.com/scwmake/SC", Fore.GREEN)
         print("\nusage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input")
         print("\nArguments:")
         print("  -h,  --help             Show this help message and exit")
@@ -138,8 +137,6 @@ def main():
         print("  -dx, --decompress       Decompress .sc files")
         print("  -cx, --compress         Compress .sc files (LZMA | SC | V1)")
         print("  -s,  --sort-layers      Enable layer sorting")
-        
-
         print(f"\nDone in {Time(time.time() - start_time)} seconds.")
         return
 
