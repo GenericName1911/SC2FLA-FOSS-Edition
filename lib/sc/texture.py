@@ -12,7 +12,6 @@ from lib.sc.streaming.sctx import SCTX
 from lib.sc.streaming.scPixel import ScPixel
 from lib.console import Console
 
-
 colorama.init()
 
 PACKER_FILTER_TABLE = {
@@ -170,43 +169,43 @@ class SWFTexture(Writable):
                 self.load_khronos_texture(open(path, "rb").read())
 
             elif ext == "sctx":
-                print(colorama.Fore.LIGHTMAGENTA_EX + "[INFO] Extracting External Asset Texture:", externalTextureFilepath)
-                out = path.replace("sctx", "png")
-                conv = os.path.relpath(os.path.join(os.path.dirname(__file__), "..", "SctxConverter.exe"))
-                try:
-                    subprocess.run([conv, "decode", path, out, "-t"], check=True)
-                    print(colorama.Fore.LIGHTMAGENTA_EX + "[INFO] SCTX decoded to:", os.path.basename(out))
-                    self._image = Image.open(out)
-                except FileNotFoundError:
-                    print(colorama.Fore.RED + "[CRITICAL] Missing SctxConverter.exe")
-                    return
-                except subprocess.CalledProcessError:
-                    print(colorama.Fore.RED + "[ERROR] SctxConverter.exe failed")
-                    return
-                except Exception as e:
-                    print(colorama.Fore.RED + "[ERROR] Unexpected error:", e)
-                    return
+                    print(colorama.Fore.LIGHTMAGENTA_EX + "[INFO] Extracting External Asset Texture:", externalTextureFilepath)
+                    out = path.replace("sctx", "png")
+                    conv = os.path.relpath(os.path.join(os.path.dirname(__file__), "..", "SctxConverter.exe"))
+                    try:
+                        subprocess.run([conv, "decode", path, out, "-t"], check=True)
+                        print(colorama.Fore.LIGHTMAGENTA_EX + "[INFO] SCTX decoded to:", os.path.basename(out))
+                        self._image = Image.open(out)
 
-                ktx_writer = BinaryWriter()
-                streaming = SCTX(path, swf.streaming_lowres_id)
-                ktx_writer.write(b'\xabKTX 11\xbb\r\n\x1a\n')
-                ktx_writer.write(b'\x01\x02\x03\x04')
-                ktx_writer.write_uint(0)
-                ktx_writer.write_uint(1)
-                ktx_writer.write_uint(0)
-                ktx_writer.write_uint(ScPixel.glInternalFormat(streaming.texture.pixel_type))
-                ktx_writer.write_uint(6408)
-                ktx_writer.write_uint(streaming.texture.width)
-                ktx_writer.write_uint(streaming.texture.height)
-                ktx_writer.write_uint(0)
-                ktx_writer.write_uint(0)
-                ktx_writer.write_uint(1)
-                ktx_writer.write_uint(1)
-                ktx_writer.write_uint(0)
-                ktx_writer.write_uint(streaming.texture.data_length)
-                ktx_writer.write(streaming.texture.data)
-                self.load_khronos_texture(ktx_writer.buffer)
+                        ktx_writer = BinaryWriter()
+                        streaming = SCTX(path, swf.streaming_lowres_id)
+                        ktx_writer.write(b'\xabKTX 11\xbb\r\n\x1a\n')
+                        ktx_writer.write(b'\x01\x02\x03\x04')
+                        ktx_writer.write_uint(0)
+                        ktx_writer.write_uint(1)
+                        ktx_writer.write_uint(0)
+                        ktx_writer.write_uint(ScPixel.glInternalFormat(streaming.texture.pixel_type))
+                        ktx_writer.write_uint(6408)
+                        ktx_writer.write_uint(streaming.texture.width)
+                        ktx_writer.write_uint(streaming.texture.height)
+                        ktx_writer.write_uint(0)
+                        ktx_writer.write_uint(0)
+                        ktx_writer.write_uint(1)
+                        ktx_writer.write_uint(1)
+                        ktx_writer.write_uint(0)
+                        ktx_writer.write_uint(streaming.texture.data_length)
+                        ktx_writer.write(streaming.texture.data)
+                        self.load_khronos_texture(ktx_writer.buffer)
 
+                    except FileNotFoundError:
+                        print(colorama.Fore.RED + "[CRITICAL] Missing SctxConverter.exe")
+                        return
+                    except subprocess.CalledProcessError:
+                        print(colorama.Fore.RED + "[ERROR] SctxConverter.exe failed")
+                        return  
+                    except Exception as e:
+                        print(colorama.Fore.RED + "[ERROR] Unexpected error:", e)
+                        return
             return
 
         if not has_external_texture:
