@@ -1,0 +1,20 @@
+# Discord Webhook to publish releases
+
+name: System Integration
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          REPO_NAME: ${{ github.repository }}
+        run: echo "{\"embeds\":[{\"title\":\"${RELEASE_NAME}\",\"url\":\"${RELEASE_URL}\",\"description\":\"${RELEASE_BODY}\",\"color\":16711935,\"footer\":{\"text\":\"${REPO_NAME}\"}}]}" > payload.json && curl -X POST -H "Content-Type: application/json" -d @payload.json "$DISCORD_WEBHOOK"
