@@ -23,7 +23,7 @@ class ColorFormatter(logging.Formatter):
     COLORS = {
         'DEBUG': Fore.CYAN,
         'INFO': Fore.LIGHTMAGENTA_EX,
-        'WARNING': Fore.MAGENTA,
+        'WARNING': Fore.YELLOW,
         'ERROR': Fore.RED,
         'CRITICAL': Fore.LIGHTRED_EX,
     }
@@ -38,6 +38,14 @@ handler = logging.StreamHandler()
 handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
 
+
+def verify_files():
+    logger.info("Verifying File Integrity...")
+    if not os.path.exists("lib/ScDowngrade.exe"):
+        logger.warning("Missing ScDowngrade.exe")
+    if not os.path.exists("lib/SctxConverter.exe"):
+        logger.warning("Missing SctxConverter.exe")
+        
 def sc_file_filter(path):
     return path.endswith(".sc") and not path.endswith("_tex.sc")
 
@@ -110,6 +118,7 @@ def process_file(filepath):
 
 
 def main():
+    verify_files()
     parser = argparse.ArgumentParser(
         prog="main.py",
         description="SC2FLA Toolkit — github.com/scwmake/SC | FOSS Support - github.com/GenericName1911",
