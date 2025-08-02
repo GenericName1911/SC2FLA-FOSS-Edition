@@ -9,8 +9,10 @@ The Original [SC2FLA](https://github.com/sc-workshop/SC) which was released by [
 This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats** and offers **extended support** for SC2FLA. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities. It supports:
 
 - Basic `.sc` to `.fla` conversion
-- Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
+- Minor Bug fixes
 - Version detection for `.sc` files
+- Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
+- Decode support for .SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
 
 ## Support
@@ -27,7 +29,9 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 	
 	`pip install -r requirements.txt`
 
-3. Download [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and place it in the `~\lib` folder.
+3. Download [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and [SctxConverter.exe](https://github.com/Daniil-SV/SCTX-Converter/releases).
+
+4 Place both binaries in the `~\lib` folder.
 
 ---
 
@@ -58,11 +62,12 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 - ~~Allow directory as argument [V2.0]~~
 - ~~Merge `main.py` and `processor.py` [V2.0]~~
 - ~~Fix sc-compression bug [V2.0]~~
-- Implement SCTX Converter [V3.0]
-- Fix bugged textures with sctx [V3.0]
-- Set default textfield colour to white [V3.0]
-- Log using Colorama instead of raw ANSI code injection [V3.0]
+- ~~Implement SCTX Converter [V3.0]~~
+- ~~Fix bugged textures with sctx [V3.0]~~
+- ~~Set default textfield colour to white [V3.0]~~
+- ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
 - Implement dump feature
+- Downgrade with dir arg (ScD supports it, but version selector is broken)
 
 ## Licensing Notice:
 
