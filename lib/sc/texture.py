@@ -177,26 +177,6 @@ class SWFTexture(Writable):
                         print(colorama.Fore.LIGHTMAGENTA_EX + "[INFO] SCTX decoded to:", os.path.basename(out))
                         self._image = Image.open(out)
 
-                        ktx_writer = BinaryWriter()
-                        streaming = SCTX(path, swf.streaming_lowres_id)
-                        ktx_writer.write(b'\xabKTX 11\xbb\r\n\x1a\n')
-                        ktx_writer.write(b'\x01\x02\x03\x04')
-                        ktx_writer.write_uint(0)
-                        ktx_writer.write_uint(1)
-                        ktx_writer.write_uint(0)
-                        ktx_writer.write_uint(ScPixel.glInternalFormat(streaming.texture.pixel_type))
-                        ktx_writer.write_uint(6408)
-                        ktx_writer.write_uint(streaming.texture.width)
-                        ktx_writer.write_uint(streaming.texture.height)
-                        ktx_writer.write_uint(0)
-                        ktx_writer.write_uint(0)
-                        ktx_writer.write_uint(1)
-                        ktx_writer.write_uint(1)
-                        ktx_writer.write_uint(0)
-                        ktx_writer.write_uint(streaming.texture.data_length)
-                        ktx_writer.write(streaming.texture.data)
-                        self.load_khronos_texture(ktx_writer.buffer)
-
                     except FileNotFoundError:
                         print(colorama.Fore.RED + "[CRITICAL] Missing SctxConverter.exe")
                         return
