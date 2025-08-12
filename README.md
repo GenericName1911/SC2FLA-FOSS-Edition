@@ -93,19 +93,18 @@ Strikethrough w/ version = Released in that version
 PR - User = Pull request by user  
 ```
 
-* ~~Improve logging \[V1.1]~~
-* ~~Allow directory as argument \[V2.0]~~
-* ~~Merge `main.py` and `processor.py` \[V2.0]~~
-* ~~Fix sc-compression bug \[V2.0]~~
-* ~~Implement SCTX Converter \[V3.0]~~
-* ~~Fix bugged textures with SCTX \[V3.0]~~
-* ~~Set default textfield color to white \[V3.0]~~
-* ~~Log using Colorama instead of raw ANSI injection \[V3.0]~~
-* Implement PNG dump feature \[V4.0]
-* Downgrade with directory argument (ScDowngrade supports, but version selector broken) \[Not possible currently]
-* Fully rely on SCTXConverter for `.sctx` handling \[V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
-* Separate package for automation/convenience; CLI remains supported with enhanced control
-
+* ~~Improve logging [V1.1]~~
+* ~~Allow directory as argument [V2.0]~~
+* ~~Merge `main.py` and `processor.py` [V2.0]~~
+* ~~Fix sc-compression bug [V2.0]~~
+* ~~Implement SCTX Converter [V3.0]~~
+* ~~Fix bugged textures with SCTX [V3.0]~~
+* ~~Set default textfield color to white [V3.0]~~
+* ~~Log using Colorama instead of raw ANSI injection [V3.0]~~
+* Implement PNG dump feature [V4.0]
+* Fully rely on SCTXConverter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
+* Separate package for automation/convenience; CLI remains supported with enhanced control [V4.0]
+* Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 
 ## Licensing Notice:
 
