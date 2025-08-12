@@ -76,8 +76,8 @@ Arguments:
   -h, --help             Show this help message and exit  
   -p, --process          Process .sc file or directory  
   -d, --dump             Dump .png resources of .sc files [V4+]  
-  -dx, --decompress       Decompress .sc files  
-  -cx, --compress         Compress .sc files (LZMA | SC | V1)  
+  -dx, --decompress      Decompress .sc files  
+  -cx, --compress        Compress .sc files (LZMA | SC | V1)  
   -s, --sort-layers      Enable layer sorting  
 ```
 
