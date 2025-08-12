@@ -60,10 +60,11 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 ## To-do
 
 Interpretation:
-
-	- Uncrossed = Not implemented
-	- Uncrossed w/ next version = Accessible in Source Control and Release in Next Version
-	- Crossed out = Released
+```
+Not Striked = Not implemented
+Not Striked w/ next version = Accessible in Source Control and Release in Next Version
+Crossed out w/ version = Released in version
+```
 	
 - ~~Improve logging [V1.1]~~
 - ~~Allow directory as argument [V2.0]~~
