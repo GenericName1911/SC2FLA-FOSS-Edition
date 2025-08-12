@@ -38,6 +38,9 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ### Choose one of the following:
 
+**V1.0 - V3.0**
+
+
 * **Automatic (Quick conversion)**
 
   1. Place `.sc`, `_dl.sc`, `_tex.sc`, `.sctx`, and `_{number}.sc` files in the `$assets/` folder.
@@ -56,6 +59,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
     -cx, --compress         Compress .sc files (LZMA | SC | V1)  
     -s,  --sort-layers      Enable layer sorting  
 ```
+
 
 ## To-do
 
