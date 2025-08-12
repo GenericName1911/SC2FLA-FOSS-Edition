@@ -61,13 +61,14 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 ```
 
 
-## To-do
+## Change Log
 
 Interpretation:
 ```
 Not Striked = Not implemented
 Not Striked w/ next version = Accessible in Source Control and Release in Next Version
 Crossed out w/ version = Released in version
+PR - User = Pull Request by User
 ```
 	
 - ~~Improve logging [V1.1]~~
@@ -80,6 +81,7 @@ Crossed out w/ version = Released in version
 - ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
 - Implement PNG dump feature [V4.0]
 - Downgrade with dir arg (ScD supports it, but version selector is broken) [Not possible at the moment]
+- Fully Rely on SCTXConverter for .sctx handing. [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
 - Separate package for automation/convenience. CLI will still be supported and offers greater control.
 
 ## Licensing Notice:
