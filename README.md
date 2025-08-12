@@ -60,6 +60,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 ## To-do
 
 Interpretation:
+
 	- Uncrossed = Not implemented
 	- Uncrossed w/ next version = Accessible in Source Control and Release in Next Version
 	- Crossed out = Released
