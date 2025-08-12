@@ -24,65 +24,88 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## Usage
 
-1. Download the [latest release.](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/releases/)
+1. Download the [latest release](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/releases/).
 
-2. Run `setup.py` or manually install dependencies:
-	
-	`pip install -r requirements.txt`
-
-3. Download [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and [SctxConverter.exe](https://github.com/Daniil-SV/SCTX-Converter/releases).
-
-4 Place both binaries in the `~\lib` folder.
+2. Place `.sc`, `_dl.sc`, `_tex.sc`, `.sctx`, and `_{number}.sc` files into the `$assets/` folder.
 
 ---
 
-### Choose one of the following:
+### Installation and Execution
 
-**For V1.0 - V3.0**
+**For V1.x - V3.x**
 
+1. Install dependencies:
 
-* **Automatic (Quick conversion)**
+   ```
+   pip install -r requirements.txt
+   ```
 
-  1. Place `.sc`, `_dl.sc`, `_tex.sc`, `.sctx`, and `_{number}.sc` files in the `$assets/` folder.
-  2. Run `run.bat`
-  
-* **Command-Line**
+2. Download [ScDowngrade.exe](https://github.com/Daniil-SV/ScDowngrade/releases) and [SctxConverter.exe](https://github.com/Daniil-SV/SCTX-Converter/releases).
+
+3. Place both binaries into the `~\lib` folder.
+
+4. Run `run.bat` or execute via CLI.
+
+**For V4.x+**
+
+1. Install dependencies manually as above, or run:
+
+   ```
+   .\user-scripts\setup.py
+   ```
+
+   This installs dependencies and downloads the latest release of `ScDowngrade.exe` and `SctxConverter.exe`.
+
+2. Place both binaries into the `~\lib` folder.
+
+3. Run desired scripts from `.\user-scripts` by dragging them to the main folder and executing, or use via CLI:
+
+   * `setup.py` — Installs dependencies and downloads latest binaries
+   * `process folder.bat` — Converts `.sc` files with downgrade support
+   * `dump png.bat` — Dumps PNG resources
+   * `clean all files.vbs` — Effectively resets the tool
+
+---
+
+### Command-Line Interface (All Versions)
 
 ```
-  usage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input
+usage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input
 
-  Arguments:
-    -h,  --help             Show this help message and exit  
-    -p,  --process          Process .sc file or directory  
-    -d,  --dump             Dumps .png resources of .sc files (NOT IMPLEMENTED)  
-    -dx, --decompress       Decompress .sc files  
-    -cx, --compress         Compress .sc files (LZMA | SC | V1)  
-    -s,  --sort-layers      Enable layer sorting  
+Arguments:
+  -h, --help             Show this help message and exit  
+  -p, --process          Process .sc file or directory  
+  -d, --dump             Dump .png resources of .sc files [V4+]  
+  -dx, --decompress       Decompress .sc files  
+  -cx, --compress         Compress .sc files (LZMA | SC | V1)  
+  -s, --sort-layers      Enable layer sorting  
 ```
 
 
 ## Change Log
 
 Interpretation:
+
 ```
-Not Striked = Not implemented
-Not Striked w/ next version = Accessible in Source Control and Release in Next Version
-Crossed out w/ version = Released in version
-PR - User = Pull Request by User
+Not strikethrough = Not implemented  
+Not strikethrough w/ next version = In source control, scheduled for next release  
+Strikethrough w/ version = Released in that version
+PR - User = Pull request by user  
 ```
-	
-- ~~Improve logging [V1.1]~~
-- ~~Allow directory as argument [V2.0]~~
-- ~~Merge `main.py` and `processor.py` [V2.0]~~
-- ~~Fix sc-compression bug [V2.0]~~
-- ~~Implement SCTX Converter [V3.0]~~
-- ~~Fix bugged textures with sctx [V3.0]~~
-- ~~Set default textfield colour to white [V3.0]~~
-- ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
-- Implement PNG dump feature [V4.0]
-- Downgrade with dir arg (ScD supports it, but version selector is broken) [Not possible at the moment]
-- Fully Rely on SCTXConverter for .sctx handing. [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
-- Separate package for automation/convenience. CLI will still be supported and offers greater control.
+
+* ~~Improve logging \[V1.1]~~
+* ~~Allow directory as argument \[V2.0]~~
+* ~~Merge `main.py` and `processor.py` \[V2.0]~~
+* ~~Fix sc-compression bug \[V2.0]~~
+* ~~Implement SCTX Converter \[V3.0]~~
+* ~~Fix bugged textures with SCTX \[V3.0]~~
+* ~~Set default textfield color to white \[V3.0]~~
+* ~~Log using Colorama instead of raw ANSI injection \[V3.0]~~
+* Implement PNG dump feature \[V4.0]
+* Downgrade with directory argument (ScDowngrade supports, but version selector broken) \[Not possible currently]
+* Fully rely on SCTXConverter for `.sctx` handling \[V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
+* Separate package for automation/convenience; CLI remains supported with enhanced control
+
 
 ## Licensing Notice:
 
