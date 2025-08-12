@@ -67,7 +67,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 - ~~Fix bugged textures with sctx [V3.0]~~
 - ~~Set default textfield colour to white [V3.0]~~
 - ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
-- Implement dump feature [V4.0]
+- Implement PNG dump feature [V4.0]
 - Downgrade with dir arg (ScD supports it, but version selector is broken) [Not possible at the moment]
 - Separate package for automation/convenience. CLI will still be supported and offers greater control.
 
