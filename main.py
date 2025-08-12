@@ -7,6 +7,12 @@ import argparse
 import subprocess
 import logging
 import colorama
+import importlib
+
+from lib import sc_import
+import sys as _sys
+_sys.modules["sc_import"] = sc_import
+_sys.modules["lib.sc_import"] = sc_import
 
 from sc_compression.signatures import Signatures
 from sc_compression import Decompressor, Compressor
@@ -39,13 +45,13 @@ handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
 
 
-def verify_files():
-    logger.info("Verifying File Integrity...")
-    if not os.path.exists("lib/ScDowngrade.exe"):
-        logger.warning("Missing ScDowngrade.exe")
-    if not os.path.exists("lib/SctxConverter.exe"):
-        logger.warning("Missing SctxConverter.exe")
-        
+logger.info("Verifying File Integrity...")
+if not os.path.exists("lib/ScDowngrade.exe"):
+    logger.warning("Missing ScDowngrade.exe")
+if not os.path.exists("lib/SctxConverter.exe"):
+    logger.warning("Missing SctxConverter.exe")
+   
+   
 def sc_file_filter(path):
     return path.endswith(".sc") and not path.endswith("_tex.sc")
 
@@ -79,12 +85,11 @@ def downgrade(filepath):
         logger.error(f"Unexpected Error: {os.path.basename(filepath)} — {e}")
 
 
-def decompile(filepath):
-    from lib import sc_to_fla
-    sc_to_fla(filepath)
-
-
-def process_file(filepath):
+def process_file(filepath, dump):
+    importlib.invalidate_caches()
+    import lib.sc_import as sc_import
+    importlib.reload(sc_import)
+    sc_import.DUMP = dump
     from lib import sc_to_fla
 
     print("-" * 20)
@@ -114,11 +119,10 @@ def process_file(filepath):
         else:
             logger.warning("Processing Failed! Skipping file...")
     else:
-        logger.debug(f"Unsupported Version: {os.path.basename(filepath)}")
+        logger.critical(f"Unsupported Version: {os.path.basename(filepath)}")
 
 
 def main():
-    verify_files()
     parser = argparse.ArgumentParser(
         prog="main.py",
         description="SC2FLA Toolkit — github.com/scwmake/SC | FOSS Support - github.com/GenericName1911",
@@ -148,18 +152,23 @@ def main():
         print("  -s,  --sort-layers      Enable layer sorting")
         print(f"\nDone in {Time(time.time() - start_time)} seconds.")
         return
-
+        
+    if args.dump:
+        logger.info("DUMP = True")
+    else:
+        logger.info("DUMP = False")
+        
     if args.process:
         path = os.path.abspath(args.process)
         if os.path.isfile(path) and sc_file_filter(path):
-            process_file(path)
+            process_file(path, args.dump)
         elif os.path.isfile(path) and os.path.splitext(args.process)[1] != ".sc":
             logger.warning(f"Invalid File: {os.path.basename(args.process)}")
         elif os.path.isdir(path):
             for name in os.listdir(path):
                 full = os.path.join(path, name)
                 if os.path.isfile(full) and sc_file_filter(full):
-                    process_file(full)
+                    process_file(full, args.dump)
 
     elif args.decompress:
         file = args.decompress
@@ -180,9 +189,6 @@ def main():
             cmp = Compressor().compress(raw, Signatures.SC, 1)
             with open(file + ".cmp", 'wb') as out:
                 out.write(cmp)
-
-    elif args.dump:
-        logger.warning("Dump feature has not been implemented yet!")
 
     print(f"Done in {Time(time.time() - start_time)} seconds.")
 

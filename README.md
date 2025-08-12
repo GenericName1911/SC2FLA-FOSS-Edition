@@ -14,6 +14,7 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Decode support for .SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
+- Dump feature for PNG resources
 
 ## Support
 
@@ -66,8 +67,9 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 - ~~Fix bugged textures with sctx [V3.0]~~
 - ~~Set default textfield colour to white [V3.0]~~
 - ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
-- Implement dump feature
+- ~~Implement dump feature [V4.0]~~
 - Downgrade with dir arg (ScD supports it, but version selector is broken)
+- Separate package for automation/convenience. CLI will still be supported and offers greater control.
 
 ## Licensing Notice:
 

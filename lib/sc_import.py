@@ -1,4 +1,6 @@
 import copy
+import colorama
+from colorama import Fore, Style
 
 from lib.console import Console
 from PIL import Image
@@ -10,6 +12,10 @@ shape_bitmaps_uvs = []
 shape_bitmaps_twips = []
 shapes_with_nine_slices = {}
 movies_with_nine_slices = []
+
+colorama.init()
+
+DUMP=""
 
 def sc_to_fla(filepath):
     swf = SupercellSWF()
@@ -26,7 +32,11 @@ def sc_to_fla(filepath):
 
     proceed_resources(fla, swf)
 
-    XFL.save(fla)
+    if not DUMP:
+        XFL.save(fla)
+    else:
+        print(f"{Fore.LIGHTMAGENTA_EX}[INFO] Dumping PNG Resources...{Style.RESET_ALL}")
+        fla.save()
 
 
 def prepare_document(path):
@@ -60,8 +70,7 @@ def proceed_resources(fla, swf):
 
     resource_counter = 0
     for id, resource in swf.resources.items():
-        Console.progress_bar("Converting SupercellFlash resources to Adobe Animate...", resource_counter,
-                             swf.movieclips_count + swf.shapes_count)
+        Console.progress_bar("Converting SupercellFlash resources to Adobe Animate...", resource_counter,swf.movieclips_count + swf.shapes_count)
         if isinstance(resource, Shape):
             convert_shape(fla, swf, id, resource)
 
