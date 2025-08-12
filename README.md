@@ -12,11 +12,11 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Minor Bug fixes
 - Version detection for `.sc` files
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
-- Decode support for .SCTX format via `SctxConverter.exe`
+- Decode support for SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
 - Dump feature for PNG resources
 
-## Support
+## Platform Support
 
 This tool is only usable on Windows with no plans to extend OS support. I'm slowly improving it, but new features are not a priority at all.
 
