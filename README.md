@@ -38,7 +38,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ### Choose one of the following:
 
-**V1.0 - V3.0**
+> **V1.0 - V3.0**
 
 
 * **Automatic (Quick conversion)**
