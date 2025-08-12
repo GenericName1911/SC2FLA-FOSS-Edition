@@ -61,7 +61,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 ```
 
 
-## To-do
+## Change Log
 
 Interpretation:
 ```
@@ -80,6 +80,7 @@ Crossed out w/ version = Released in version
 - ~~Log using Colorama instead of raw ANSI code injection [V3.0]~~
 - Implement PNG dump feature [V4.0]
 - Downgrade with dir arg (ScD supports it, but version selector is broken) [Not possible at the moment]
+- Fully Rely on SCTXConverter for .sctx handing. [V4.0] (PR)
 - Separate package for automation/convenience. CLI will still be supported and offers greater control.
 
 ## Licensing Notice:
