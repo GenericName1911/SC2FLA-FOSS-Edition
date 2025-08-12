@@ -59,6 +59,11 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 ## To-do
 
+Interpretation:
+	- Uncrossed = Not implemented
+	- Uncrossed w/ next version = Accessible in Source Control and Release in Next Version
+	- Crossed out = Released
+	
 - ~~Improve logging [V1.1]~~
 - ~~Allow directory as argument [V2.0]~~
 - ~~Merge `main.py` and `processor.py` [V2.0]~~
