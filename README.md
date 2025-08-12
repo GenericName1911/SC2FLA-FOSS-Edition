@@ -58,7 +58,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 2. Place both binaries into the `~\lib` folder.
 
-3. Run desired scripts from `.\user-scripts` by dragging them to the main folder and executing, or use via CLI:
+3. Run desired scripts from `.\user-scripts` by _dragging them to the main folder and executing_, or use via CLI:
 
    * `setup.py` — Installs dependencies and downloads latest binaries
    * `process folder.bat` — Converts `.sc` files with downgrade support
