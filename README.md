@@ -105,6 +105,7 @@ PR - User = Pull request by user
 * Fully rely on SCTXConverter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
 * Separate package for automation/convenience; CLI remains supported with enhanced control [V4.0]
 * Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
+* Faster Conversion
 
 ## Licensing Notice:
 
