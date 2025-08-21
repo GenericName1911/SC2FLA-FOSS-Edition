@@ -45,12 +45,12 @@ handler.setFormatter(ColorFormatter())
 logger.handlers = [handler]
 
 
-logger.info("Verifying File Integrity...")
-if not os.path.exists("lib/ScDowngrade.exe"):
-    logger.warning("Missing ScDowngrade.exe")
-if not os.path.exists("lib/SctxConverter.exe"):
-    logger.warning("Missing SctxConverter.exe")
-   
+def verify_files():
+    logger.info("Verifying File Integrity...")
+    if not os.path.exists("lib/ScDowngrade.exe"):
+        logger.warning("Missing ScDowngrade.exe")
+    if not os.path.exists("lib/SctxConverter.exe"):
+        logger.warning("Missing SctxConverter.exe")
    
 def sc_file_filter(path):
     return path.endswith(".sc") and not path.endswith("_tex.sc")
@@ -86,6 +86,7 @@ def downgrade(filepath):
 
 
 def process_file(filepath, dump):
+    verify_files()
     importlib.invalidate_caches()
     import lib.sc_import as sc_import
     importlib.reload(sc_import)
@@ -130,7 +131,7 @@ def main():
         add_help=False)
     parser.add_argument("-h", "--help", action="store_true", help="Show this help message and exit")
     parser.add_argument("-p", "--process", type=str, metavar='FILE/DIR', help="Process .sc file or directory")
-    parser.add_argument("-d", "--dump", action="store_true", help="Dumps .png resources of .sc files (not implemented)")
+    parser.add_argument("-d", "--dump", action="store_true", help="Dumps .png resources of .sc files")
     parser.add_argument("-dx", "--decompress", type=str, metavar='FILE', help="Decompress .sc files")
     parser.add_argument("-cx", "--compress", type=str, metavar='FILE', help="Compress .sc files (LZMA | SC | v1)")
     parser.add_argument("-s", "--sort-layers", action="store_true", help="Enable layer sorting during decompilation")
@@ -140,13 +141,13 @@ def main():
 
     if args.help or len(sys.argv) == 1:
         print()
-        print_centered("FOSS Support by GenericName1911 - github.com/GenericName1911", Fore.MAGENTA)
+        print_centered("FOSS Support by GenericName1911 - github.com/GenericName1911", Fore.LIGHTMAGENTA_EX)
         print_centered("SC2FLA Toolkit by SCW Make - github.com/scwmake/SC", Fore.GREEN)
         print("\nusage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input")
         print("\nArguments:")
         print("  -h,  --help             Show this help message and exit")
         print("  -p,  --process          Process .sc file or directory")
-        print("  -d,  --dump             Dumps .png resources of .sc files (NOT IMPLEMENTED)")
+        print("  -d,  --dump             Dumps .png resources of .sc files")
         print("  -dx, --decompress       Decompress .sc files")
         print("  -cx, --compress         Compress .sc files (LZMA | SC | V1)")
         print("  -s,  --sort-layers      Enable layer sorting")
@@ -154,9 +155,14 @@ def main():
         return
         
     if args.dump:
-        logger.info("DUMP = True")
+        logger.info("Dump SC Enabled.")
     else:
-        logger.info("DUMP = False")
+        logger.info("Dump SC Disabled.")
+        
+    if args.sort_layers:
+        logger.info("Layer Sorting Enabled.")
+    else:
+        logger.info("Layer Sorting Disabled.")
         
     if args.process:
         path = os.path.abspath(args.process)
