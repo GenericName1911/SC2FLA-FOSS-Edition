@@ -4,6 +4,8 @@ import platform
 
 from shutil import get_terminal_size
 
+DISABLE_PROGRESS_BAR = True
+
 if platform.system() == "Windows":
     colorama.init()
 
@@ -42,14 +44,13 @@ class Console:
         print(colorama.Fore.RED + f"[ERROR] {message}" + colorama.Style.RESET_ALL)
 
     @staticmethod
-    def progress_bar(info, current, total, start=0, end=100, totalCount = -1, currentCount = -1):
+    def progress_bar(info, current, total, start=0, end=100, totalCount=-1, currentCount=-1):
+        if DISABLE_PROGRESS_BAR:
+            return
         message = colorama.Fore.GREEN
         message += f"\r[{((current + 1) * end + start) // total + start}%] "
-
-        if (totalCount > 0 and currentCount > 0):
+        if totalCount > 0 and currentCount > 0:
             message += f"[{currentCount}/{totalCount} "
-            
         message += info
         message += colorama.Style.RESET_ALL
-
         sys.stdout.write(message)
