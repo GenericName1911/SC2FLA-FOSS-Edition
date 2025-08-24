@@ -86,7 +86,6 @@ def downgrade(filepath):
 
 
 def process_file(filepath, dump):
-    verify_files()
     importlib.invalidate_caches()
     import lib.sc_import as sc_import
     importlib.reload(sc_import)
@@ -154,6 +153,8 @@ def main():
         print(f"\nDone in {Time(time.time() - start_time)} seconds.")
         return
         
+    verify_files()    
+    
     if args.dump:
         logger.info("Dump SC Enabled.")
     else:
