@@ -4,7 +4,7 @@ SC2FLA-FOSS-Edition is a **Free and Open-source** tool for converting `.sc` file
 
 The Original [SC2FLA](https://github.com/sc-workshop/SC) which was released by [Daniil](https://github.com/daniil-sv) and [Fred](https://github.com/pavidloq) is now **closed-source** and has been rewritten by Daniil in a faster language with more features. 
 
-For any errors, feedback, or help, feel free to message me anytime on discord. UID: @generic_name_1911
+For any **_errors_**, feel free to message me anytime on discord `@generic_name_1911` or create an issue.
 
 ## Features
 
