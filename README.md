@@ -60,10 +60,11 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
 
 2. Place both binaries into the `~\lib` folder.
 
-3. Run desired scripts from `.\user-scripts` by _dragging them to the main folder and executing_, or use via CLI:
+3. Run desired scripts from `.\user-scripts` by _dragging them to the main folder and executing_:
 
    * `setup.py` — Installs dependencies and downloads latest binaries
    * `process folder.bat` — Converts `.sc` files with downgrade support
+   * `dump raw.bat` — Dumps RAW resources
    * `dump png.bat` — Dumps PNG resources
    * `clean all files.vbs` — Effectively resets the tool
 
@@ -77,7 +78,8 @@ usage: main.py [-h] [-p] [-d] [-dx/-cx] [-s] input
 Arguments:
   -h, --help             Show this help message and exit  
   -p, --process          Process .sc file or directory  
-  -d, --dump             Dump .png resources of .sc files [V4+]  
+  -dr, --dump-raw        Dump RAW resources of .sc files [V4+]
+  -dp, --dump-png        Dump RAW resources of .sc files [V4+]  
   -dx, --decompress      Decompress .sc files  
   -cx, --compress        Compress .sc files (LZMA | SC | V1)  
   -s, --sort-layers      Enable layer sorting  
@@ -103,12 +105,14 @@ PR - User = Pull request by user
 * ~~Fix bugged textures with SCTX [V3.0]~~
 * ~~Set default textfield color to white [V3.0]~~
 * ~~Log using Colorama instead of raw ANSI injection [V3.0]~~
-* Implement PNG dump feature [V4.0]
+* Implement RAW dump feature [V4.0]
 * Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
 * Separate package for automation/convenience; CLI remains supported with enhanced control [V4.0]
-* Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 * Faster Conversion
 * Fix Khronos textures with PVRTexTool.exe
+* Implement RAW dump feature
+
+* Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 
 ## Licensing Notice:
 

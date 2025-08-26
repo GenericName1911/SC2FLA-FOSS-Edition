@@ -122,6 +122,11 @@ def process_file(filepath, dump):
         logger.critical(f"Unsupported Version: {os.path.basename(filepath)}")
 
 
+def dump_png():
+    # placeholder
+    pass
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="main.py",
@@ -130,7 +135,8 @@ def main():
         add_help=False)
     parser.add_argument("-h", "--help", action="store_true", help="Show this help message and exit")
     parser.add_argument("-p", "--process", type=str, metavar='FILE/DIR', help="Process .sc file or directory")
-    parser.add_argument("-d", "--dump", action="store_true", help="Dumps .png resources of .sc files")
+    parser.add_argument("-dr", "--dump-raw", action="store_true", help="Dumps RAW resources of .sc files")
+    parser.add_argument("-dp", "--dump-png", action="store_true", help="Dumps PNG resources of .sc files")
     parser.add_argument("-dx", "--decompress", type=str, metavar='FILE', help="Decompress .sc files")
     parser.add_argument("-cx", "--compress", type=str, metavar='FILE', help="Compress .sc files (LZMA | SC | v1)")
     parser.add_argument("-s", "--sort-layers", action="store_true", help="Enable layer sorting during decompilation")
@@ -146,7 +152,8 @@ def main():
         print("\nArguments:")
         print("  -h,  --help             Show this help message and exit")
         print("  -p,  --process          Process .sc file or directory")
-        print("  -d,  --dump             Dumps .png resources of .sc files")
+        print("  -dr,  --dump-raw        Dumps RAW resources of .sc files")
+        print("  -dp,  --dump-png        Dumps PNG resources of .sc files")
         print("  -dx, --decompress       Decompress .sc files")
         print("  -cx, --compress         Compress .sc files (LZMA | SC | V1)")
         print("  -s,  --sort-layers      Enable layer sorting")
@@ -155,11 +162,21 @@ def main():
         
     verify_files()    
     
-    if args.dump:
-        logger.info("Dump SC Enabled.")
+    if args.dump_raw:
+        logger.info("Dump RAW Enabled.")
     else:
-        logger.info("Dump SC Disabled.")
+        logger.info("Dump RAW Disabled.")
+
+    if args.dump_png:
+        logger.info("Dump PNG Enabled.")
+        dump_png()
+    else:
+        logger.info("Dump PNG Disabled.")
         
+    if args.dump_raw and args.dump_png:
+        logger.error("Both RAW and PNG dump cannot be enabled at the same time.")
+        sys.exit(1)
+    
     if args.sort_layers:
         logger.info("Layer Sorting Enabled.")
     else:

@@ -1,3 +1,3 @@
 @echo off
-main.py --dump --process $assets 
+main.py --dump-png --process $assets 
 pause >nul
