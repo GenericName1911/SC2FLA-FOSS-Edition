@@ -65,7 +65,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
    * `setup.py` — Installs dependencies and downloads latest binaries
    * `process folder.bat` — Converts `.sc` files with downgrade support
    * `dump raw.bat` — Dumps RAW resources
-   * `dump png.bat` — Dumps PNG resources
+   * `dump png.bat` — Dumps PNG resources [V5+]
    * `clean all files.vbs` — Effectively resets the tool
 
 ---
