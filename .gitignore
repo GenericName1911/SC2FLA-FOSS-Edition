@@ -170,3 +170,4 @@ cython_debug/
 clean all files.vbs
 lib/sctx2png.bat
 user-scripts/sctx2png.bat
+process folder.bat
