@@ -65,7 +65,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
    * `setup.py` — Installs dependencies and downloads latest binaries
    * `process folder.bat` — Converts `.sc` files with downgrade support
    * `dump raw.bat` — Dumps RAW resources
-   * `dump png.bat` — Dumps PNG resources
+   * `dump png.bat` — Dumps PNG resources [V5+]
    * `clean all files.vbs` — Effectively resets the tool
 
 ---
@@ -79,7 +79,7 @@ Arguments:
   -h, --help             Show this help message and exit  
   -p, --process          Process .sc file or directory  
   -dr, --dump-raw        Dump RAW resources of .sc files [V4+]
-  -dp, --dump-png        Dump RAW resources of .sc files [V4+]  
+  -dp, --dump-png        Dump RAW resources of .sc files [V5+]  
   -dx, --decompress      Decompress .sc files  
   -cx, --compress        Compress .sc files (LZMA | SC | V1)  
   -s, --sort-layers      Enable layer sorting  
@@ -105,13 +105,12 @@ PR - User = Pull request by user
 * ~~Fix bugged textures with SCTX [V3.0]~~
 * ~~Set default textfield color to white [V3.0]~~
 * ~~Log using Colorama instead of raw ANSI injection [V3.0]~~
-* Implement RAW dump feature [V4.0]
-* Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))
-* Separate package for automation/convenience; CLI remains supported with enhanced control [V4.0]
+* ~~Implement RAW dump feature [V4.0]~~
+* ~~Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))~~
+* ~~Separate package for automation/convenience; CLI is still supported for enhanced control [V4.0]~~
 * Faster Conversion
 * Fix Khronos textures with PVRTexTool.exe
-* Implement RAW dump feature
-
+* Implement PNG dump feature (With SCTex.exe)
 * Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 
 ## Licensing Notice:
