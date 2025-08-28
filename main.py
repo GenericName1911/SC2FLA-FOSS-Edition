@@ -185,14 +185,14 @@ def main():
     if args.process:
         path = os.path.abspath(args.process)
         if os.path.isfile(path) and sc_file_filter(path):
-            process_file(path, args.dump)
+            process_file(path, args.dump_raw)
         elif os.path.isfile(path) and os.path.splitext(args.process)[1] != ".sc":
             logger.warning(f"Invalid File: {os.path.basename(args.process)}")
         elif os.path.isdir(path):
             for name in os.listdir(path):
                 full = os.path.join(path, name)
                 if os.path.isfile(full) and sc_file_filter(full):
-                    process_file(full, args.dump)
+                    process_file(full, args.dump_raw)
 
     elif args.decompress:
         file = args.decompress
