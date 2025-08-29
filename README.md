@@ -108,10 +108,10 @@ PR - User = Pull request by user
 * ~~Implement RAW dump feature [V4.0]~~
 * ~~Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))~~
 * ~~Separate package for automation/convenience; CLI is still supported for enhanced control [V4.0]~~
-* Faster Conversion
 * Fix Khronos textures with PVRTexTool.exe
 * Implement PNG dump feature (With SCTex.exe)
 * Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
+* Use **Multi-threading**
 
 ## Licensing Notice:
 
