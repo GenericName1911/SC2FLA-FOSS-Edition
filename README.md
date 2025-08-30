@@ -23,7 +23,7 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 
 This tool is only usable on Windows with no plans to extend OS support. I'm improving it, but new features are not a priority at all.
 
-For any **_errors_**, feel free to message me anytime on discord `@generic_name_1911` or create an issue. Do __not_ create issues for **feature requests**. 
+For any **_errors_**, feel free to message me anytime on discord `@generic_name_1911` or create an issue. Do _not_ create issues for **feature requests**. 
 
 Feel free to contribute to this project! Any help is greatly appreciated :D
 
