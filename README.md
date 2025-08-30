@@ -16,7 +16,7 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Decode support for SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
 - Dump feature for PNG resources via SCTex.exe (soon)
-- Multithreading for _**way**_  faster conversion (Only bottleneck is CPU) (soon)
+- Multithreading for _**way**_  faster conversion (Only bottleneck being CPU) (soon)
 
 
 ## Support
