@@ -16,11 +16,13 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Decode support for SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
-- Dump feature for PNG resources
+- Dump feature for PNG resources (soon)
+- Multithreading for _**way**_ faster conversion (Only bottleneck is CPU) (soon)
 
-## Platform Support
 
-This tool is only usable on Windows with no plans to extend OS support. I'm slowly improving it, but new features are not a priority at all.
+## Support
+
+This tool is only usable on Windows with no plans to extend OS support. I'm improving it, but new features are not a priority at all. For any **_errors_**, feel free to message me anytime on discord `@generic_name_1911` or create an issue. Do __not_ create issues for **feature requests**. 
 
 Feel free to contribute to this project! Any help is greatly appreciated :D
 
@@ -109,7 +111,7 @@ PR - User = Pull request by user
 * ~~Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))~~
 * ~~Separate package for automation/convenience; CLI is still supported for enhanced control [V4.0]~~
 * Fix Khronos textures with PVRTexTool.exe
-* Implement PNG dump feature (With SCTex.exe)
+* Implement PNG dump feature with SCTex.exe
 * Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 * Use **Multi-threading**
 
