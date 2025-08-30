@@ -15,8 +15,8 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Decode support for SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
-- Dump feature for PNG resources (soon)
-- Multithreading for _**way**_ faster conversion (Only bottleneck is CPU) (soon)
+- Dump feature for PNG resources via SCTex.exe (soon)
+- Multithreading for _**way**_  faster conversion (Only bottleneck is CPU) (soon)
 
 
 ## Support
