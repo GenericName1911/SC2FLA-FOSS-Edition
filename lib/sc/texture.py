@@ -127,8 +127,20 @@ class SWFTexture(Writable):
         inputPath = os.path.join(tempfile.gettempdir(), next(tempfile._get_candidate_names()) + ".ktx")
         outputPath = os.path.join(tempfile.gettempdir(), next(tempfile._get_candidate_names()) + ".png")
         with open(inputPath, "wb") as f: f.write(data)
-        os.system(f"PVRTexToolCLI.exe -i {inputPath} -d {outputPath} -ics sRGB -noout")
-        self._image = Image.open(outputPath)
+        textoolpath = os.path.relpath(os.path.join(os.path.dirname(__file__), "..", "PVRTexToolCLI.exe"))
+        try:
+            subprocess.run([textoolpath, "-i", inputPath, "-d", outputPath, "-ics", "sRGB", "-noout"], check=True)
+            self._image = Image.open(outputPath)
+
+        except FileNotFoundError:
+            print(colorama.Fore.RED + "[CRITICAL] Missing PVRTexToolCLI.exe")
+            return
+        except subprocess.CalledProcessError:
+            print(colorama.Fore.RED + "[ERROR] PVRTexToolCLI.exe failed")
+            return
+        except Exception as e:
+            print(colorama.Fore.RED + "[ERROR] Unexpected error:", e)
+            return
 
     def load(self, swf, tag, has_external_texture):
         ktxSize = 0

@@ -15,7 +15,7 @@ This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic
 - Downgrade support for SC2 to SC1 format via `ScDowngrade.exe`
 - Decode support for SCTX format via `SctxConverter.exe`
 - Support for batch processing of files
-- Dump feature for PNG resources via SCTex.exe (soon)
+- Creating spritesheets via `SCTex.exe` (soon)
 - Multithreading for _**way**_  faster conversion (Only bottleneck being CPU) (soon)
 
 
@@ -26,6 +26,15 @@ This tool is only usable on Windows with no plans to extend OS support. I'm impr
 For any **_errors_**, feel free to message me anytime on discord `@generic_name_1911` or create an issue. Do _not_ create issues for **feature requests**. 
 
 Feel free to contribute to this project! Any help is greatly appreciated :D
+
+## Dependencies:
+
+1. Python 3.10+ (Added to PATH)
+2. pip
+3. [ScDowngrade](https://github.com/Daniil-SV/ScDowngrade/releases)
+4. [SCTX-Converter](https://github.com/Daniil-SV/SCTX-Converter/releases)
+5. [SupercellFlash Texture Tool (Modified by me)](https://github.com/sc-workshop/SupercellFlash)
+6. [PVRTexToolCLI](https://docs.imgtec.com/tools-manuals/pvrtextool-manual/html/topics/pvrtextool-cli.html)
 
 ## Usage
 
@@ -68,7 +77,7 @@ Feel free to contribute to this project! Any help is greatly appreciated :D
    * `setup.py` — Installs dependencies and downloads latest binaries
    * `process folder.bat` — Converts `.sc` files with downgrade support
    * `dump raw.bat` — Dumps RAW resources
-   * `dump png.bat` — Dumps PNG resources [V5+]
+   * `spritesheet.bat` — Creates PNG spritesheets [V5.0+]
    * `clean all files.vbs` — Effectively resets the tool
 
 ---
@@ -111,10 +120,12 @@ PR - User = Pull request by user
 * ~~Implement RAW dump feature [V4.0]~~
 * ~~Fully rely on SCTX Converter for `.sctx` handling [V4.0] ([PR - 8-bitHacc](https://github.com/GenericName1911/SC2FLA-FOSS-Edition/pull/2))~~
 * ~~Separate package for automation/convenience; CLI is still supported for enhanced control [V4.0]~~
-* Fix Khronos textures with PVRTexTool.exe
-* Implement PNG dump feature with SCTex.exe
+* ~~List of dependencies [V5.0]~~
+* ~~Fix Khronos textures with PVRTexTool.exe [V5.0]~~
+* Implement Spritesheet creation with SCTex.exe
 * Downgrade with directory argument (ScD version selector is broken) [Not possible currently]
 * Use **Multi-threading**
+
 
 ## Licensing Notice:
 
