@@ -7,7 +7,7 @@ The Original [SC2FLA](https://github.com/sc-workshop/SC) which was released by [
 
 ## Features
 
-This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats** and offers **extended support** for SC2FLA. It **does not** have advanced features from the paid version, but it is a usable solution for those needing basic conversion capabilities. It supports:
+This FOSS edition builds on Daniil's last public SC2FLA version. It adds **basic compatibility with newer SC formats** and offers **extended support** for SC2FLA. It **does not** have advanced features from the [Paid Version](https://ko-fi.com/scworkshop/tiers), but it is a usable solution for those needing basic conversion capabilities. It supports:
 
 - Basic `.sc` to `.fla` conversion
 - Minor Bug fixes
@@ -130,7 +130,7 @@ PR - User = Pull request by user
 ## Licensing Notice:
 
 ```
-Copyright (C) 2025 generic_name_1911
+Copyright (C) 2025 GenericName1911
 
 This program is free software: You can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
